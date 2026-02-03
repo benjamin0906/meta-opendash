@@ -1,0 +1,2 @@
+EXTRA_OECMAKE += "-DCMAKE_CXX_STANDARD=17"
+EXTRA_OEMAKE += "cxxflags='-std=c++17'"

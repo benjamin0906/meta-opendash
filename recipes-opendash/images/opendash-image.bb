@@ -5,5 +5,5 @@ IMAGE_INSTALL += "openssh openssl openssh-sftp-server"
 IMAGE_INSTALL += "raspi-gpio"
 IMAGE_INSTALL += "kernel-module-spidev kernel-module-spi-bcm2835"
 IMAGE_INSTALL += "rpi-gpio"
-IMAGE_INSTALL += "protobuf"
+IMAGE_INSTALL += "aasdk"
 
