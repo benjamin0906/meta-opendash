@@ -11,38 +11,9 @@ DEPENDS += "alsa-utils automake-native autoconf-native"
 inherit cmake pkgconfig
 
 EXTRA_OECMAKE += "-DCMAKE_POSITION_INDEPENDENT_CODE=ON -DBUILD_SHARED_LIBS=ON -DCMAKE_CXX_STANDARD=17"
-EXTRA_OECMAKE += "-DCMAKE_INSTALL_PREFIX=${RECIPE_SYSROOT}"
+#EXTRA_OECMAKE += "-DCMAKE_INSTALL_=${D}/"
 
-do_configure:prepend() {
-    echo "myecho: ${D}"
-    echo "myecho2: ${D}"
-}
+#FILES:${PN} += "${libdir}/${PN}/*"
+FILES:${PN}-dev += "${includedir}/libh264bitstream.so"
 
-do_configure() {
-    echo "configuring"
-    echo "$(pwd)"
-    #echo "${S}"
-    #cd ${S}
-    cmake ../git "-DCMAKE_INSTALL_PREFIX=${RECIPE_SYSROOT}"
-}
 
-do_compile(){
-    echo "compiling"
-    echo "$(pwd)"
-    #cd build
-    #echo "$(pwd)"
-    make
-}
-
-FILES:${PN} = "${RECIPE_SYSROOT}/lib/*"
-FILES:${PN}-dev = "${RECIPE_SYSROOT}/include/*.h"
-FILES:${PN}-share = "${RECIPE_SYSROOT}/share"
-FILES:${PN}-bin = "${RECIPE_SYSROOT}/bin"
-
-do_install(){
-    echo "myecho2: ${RECIPE_SYSROOT}"
-    ls
-    echo "$(pwd)"
-    make install 
-    rm "${RECIPE_SYSROOT}/share" -rf
-}
