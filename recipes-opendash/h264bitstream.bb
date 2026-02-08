@@ -10,10 +10,8 @@ DEPENDS += "alsa-utils automake-native autoconf-native"
 
 inherit cmake pkgconfig
 
-EXTRA_OECMAKE += "-DCMAKE_POSITION_INDEPENDENT_CODE=ON -DBUILD_SHARED_LIBS=ON -DCMAKE_CXX_STANDARD=17"
-#EXTRA_OECMAKE += "-DCMAKE_INSTALL_=${D}/"
+EXTRA_OECMAKE += "-DCMAKE_POSITION_INDEPENDENT_CODE=ON -DCMAKE_CXX_STANDARD=17"
+EXTRA_OECMAKE += "-DCMAKE_INSTALL_DIR=${D}"
 
-#FILES:${PN} += "${libdir}/${PN}/*"
-FILES:${PN}-dev += "${includedir}/libh264bitstream.so"
-
-
+FILES:${PN}-dev += "${libdir}/libh264bitstream.a"
+FILES:${PN}-dev += "${includedir}/*.h"
