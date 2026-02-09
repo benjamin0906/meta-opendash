@@ -7,7 +7,6 @@ SRCREV="${AUTOREV}"
 S = "${WORKDIR}/git"
 
 inherit cmake pkgconfig
-#PREFERRED_VERSION_openssl = "3.0.0"
 DEPENDS += "protobuf protobuf-native boost libusb1 openssl"
 
 

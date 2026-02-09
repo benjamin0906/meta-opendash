@@ -8,4 +8,4 @@ IMAGE_INSTALL += "rpi-gpio"
 #IMAGE_INSTALL += "bluez5"
 
 #IMAGE_INSTALL += "qtconnectivity"
-IMAGE_INSTALL += "openauto"
+IMAGE_INSTALL += "dash"
