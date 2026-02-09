@@ -11,9 +11,9 @@ IMAGE_INSTALL:append = " qt5bluetooth"
 DISTRO_FEATURES:append = " pi-bluetooth bluetooth"
 IMAGE_INSTALL:append = " pi-bluetooth"
 DEPENDS += "aasdk pulseaudio qtbase rtaudio protobuf protobuf-native bluez5 qtconnectivity qtmultimedia abseil"
-DEPENDS += "h264bitstream gstreamer openauto boost libusb1 bluez-qt"
+DEPENDS += "h264bitstream gstreamer openauto boost libusb1 bluez-qt qtserialbus"
 
-inherit cmake pkgconfig
+inherit cmake pkgconfig cmake_qt5
 
 EXTRA_OECMAKE += "-DCMAKE_CXX_STANDARD=17 -DCMAKE_CXX_STANDARD_REQUIRED=ON -DCMAKE_CXX_FLAGS=-std=c++17 -DGST_BUILD=true \
     -DCMAKE_THREAD_PREFER_PTHREAD=TRUE \
