@@ -21,27 +21,10 @@ EXTRA_OECMAKE += "-DQT_VERSION=5 -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS=-s
 EXTRA_OECMAKE += "-DCMAKE_INSTALL_LIBDIR=lib"
 EXTRA_OECMAKE += "-DCMAKE_INSTALL_INCLUDEDIR=include"
 
-#FILES:${PN} += "${D}/*.so.*"
-#
-#FILES:${PN}-dev += "${D}/*.so"
-#FILES:${PN}-dev += "${D}/pkgconfig"
-#FILES:${PN}-dev += "${D}/cmake"
-#FILES:${PN}-dev += "${D}${libdir}"
-#FILES:${PN}-dev += "${CMAKE_CURRENT_BINARY_DIR}/qmldir"
 
-#FILES:${PN}-dev += "${libdir}/lib/*.so"
 FILES:${PN} += "${libdir}/gstreamer-1.0/libgstqt5videosink.so"
-#FILES:${PN}-dbg += "/usr/QtGStreamer/.debug/libQtGStreamerQuick2.so"
 FILES:${PN} += "/usr/QtGStreamer/libQtGStreamerQuick2.so"
 FILES:${PN} += "/usr/lib/QtGStreamer/libQtGStreamerQuick2.so"
 FILES:${PN} += "${includedir}/Qt5GStreamer/QGlib/*.h"
 FILES:${PN} += "${includedir}/Qt5GStreamer/QGlib/Error"
 FILES:${PN} += "${includedir}/Qt5GStreamer/QGst/*.h"
-#d
-do_install:append(){
-    # Your code here
-    echo "D: ${D}"
-    echo "libdir: ${libdir}"
-    echo "includedir: ${includedir}"
-    echo "${FILES:${PN}}"
-}

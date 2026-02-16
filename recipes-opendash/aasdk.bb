@@ -7,8 +7,7 @@ SRCREV="${AUTOREV}"
 S = "${WORKDIR}/git"
 
 inherit cmake pkgconfig
-DEPENDS += "protobuf protobuf-native boost libusb1 openssl"
+DEPENDS += "protobuf protobuf-native boost libusb1"
 
 
 EXTRA_OECMAKE += "-DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_STANDARD=17 -DCMAKE_CXX_STANDARD_REQUIRED=ON"
-#-DProtobuf_PROTOC_EXECUTABLE=${STAGING_BINDIR_NATIVE}/protoc -DProtobuf_INCLUDE_DIR=${RECIPE_SYSROOT}/usr/include -DProtobuf_LIBRARY=${RECIPE_SYSROOT}/usr/lib/libprotobuf.so 

@@ -11,11 +11,3 @@ DEPENDS += "alsa-utils automake-native autoconf-native"
 inherit autotools pkgconfig
 
 EXTRA_OECMAKE += "-DCMAKE_POSITION_INDEPENDENT_CODE=ON -DBUILD_SHARED_LIBS=ON -DCMAKE_CXX_STANDARD=17"
-
-#do_configure:prepend() {
-#    prev_path="$(pwd)"
-#    cd ${S}
-#    echo "Running $(pwd)/autogen.sh for rtaudio"
-#    ./autogen.sh --host=
-#    cd $(prev_path)
-#}
