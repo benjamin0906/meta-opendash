@@ -1,0 +1,72 @@
+From 6ff3fd69321d7f438339ad998e2661a2a4308d17 Mon Sep 17 00:00:00 2001
+From: Benjamin Bodnar <benjamin0906@gmail.com>
+Date: Fri, 20 Feb 2026 12:57:38 +0100
+Subject: [PATCH] one patch
+Upstream-Status: Inappropriate
+
+---
+ elements/gstqtvideosink/gstqtvideosinkplugin.h     | 2 +-
+ elements/gstqtvideosink/painters/videomaterial.cpp | 4 ++--
+ src/QGst/event.cpp                                 | 2 +-
+ src/QGst/message.cpp                               | 2 +-
+ 4 files changed, 5 insertions(+), 5 deletions(-)
+
+diff --git a/elements/gstqtvideosink/gstqtvideosinkplugin.h b/elements/gstqtvideosink/gstqtvideosinkplugin.h
+index dc04671..a72c572 100644
+--- a/elements/gstqtvideosink/gstqtvideosinkplugin.h
++++ b/elements/gstqtvideosink/gstqtvideosinkplugin.h
+@@ -27,7 +27,7 @@ GST_DEBUG_CATEGORY_EXTERN(gst_qt_video_sink_debug);
+ #define DEFINE_TYPE_FULL(cpp_type, type_name, parent_type, additional_initializations) \
+     GType cpp_type::get_type() \
+     { \
+-        static volatile gsize gonce_data = 0; \
++        static gsize gonce_data = 0; \
+         if (g_once_init_enter(&gonce_data)) { \
+             GType type = 0; \
+             GTypeInfo info; \
+diff --git a/elements/gstqtvideosink/painters/videomaterial.cpp b/elements/gstqtvideosink/painters/videomaterial.cpp
+index 7221aa5..8f8d9a7 100644
+--- a/elements/gstqtvideosink/painters/videomaterial.cpp
++++ b/elements/gstqtvideosink/painters/videomaterial.cpp
+@@ -305,10 +305,10 @@ void VideoMaterial::initYuv420PTextureInfo(bool uvSwapped, const QSize &size)
+     m_textureWidths[0] = bytesPerLine;
+     m_textureHeights[0] = size.height();
+     m_textureOffsets[0] = 0;
+-    m_textureWidths[1] = bytesPerLine2;
++    m_textureWidths[1] = bytesPerLine2 / 2;
+     m_textureHeights[1] = size.height() / 2;
+     m_textureOffsets[1] = bytesPerLine * size.height();
+-    m_textureWidths[2] = bytesPerLine2;
++    m_textureWidths[2] = bytesPerLine2 / 2;
+     m_textureHeights[2] = size.height() / 2;
+     m_textureOffsets[2] = bytesPerLine * size.height() + bytesPerLine2 * size.height()/2;
+ 
+diff --git a/src/QGst/event.cpp b/src/QGst/event.cpp
+index 0530f0b..260a909 100644
+--- a/src/QGst/event.cpp
++++ b/src/QGst/event.cpp
+@@ -125,7 +125,7 @@ Segment SegmentEvent::segment() const
+ //********************************************************
+ TagEventPtr TagEvent::create(const TagList & taglist)
+ {
+-    GstEvent * e = gst_event_new_tag(gst_tag_list_copy(taglist));
++    GstEvent * e = gst_event_new_tag(gst_tag_list_copy(&taglist));
+     return TagEventPtr::wrap(e, false);
+ }
+ 
+diff --git a/src/QGst/message.cpp b/src/QGst/message.cpp
+index ae845cc..1044b88 100644
+--- a/src/QGst/message.cpp
++++ b/src/QGst/message.cpp
+@@ -157,7 +157,7 @@ QString InfoMessage::debugMessage() const
+ 
+ TagMessagePtr TagMessage::create(const ObjectPtr & source, const TagList & taglist)
+ {
+-    GstMessage *m = gst_message_new_tag(source, gst_tag_list_copy(taglist));
++    GstMessage *m = gst_message_new_tag(source, gst_tag_list_copy(&taglist));
+     return TagMessagePtr::wrap(m, false);
+ }
+ 
+-- 
+2.43.0
+

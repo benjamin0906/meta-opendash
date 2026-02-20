@@ -1,0 +1,29 @@
+From 8d82991df561cf91199fd9622c374823845383a9 Mon Sep 17 00:00:00 2001
+From: Benjamin Bodnar <benjamin0906@gmail.com>
+Date: Fri, 20 Feb 2026 14:57:18 +0100
+Subject: [PATCH] GST_TRACE_OBJECT abspath fix
+Upstream-Status: Inappropriate
+
+---
+ elements/gstqtvideosink/CMakeLists.txt | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/elements/gstqtvideosink/CMakeLists.txt b/elements/gstqtvideosink/CMakeLists.txt
+index 65265a0..f0cc2c8 100644
+--- a/elements/gstqtvideosink/CMakeLists.txt
++++ b/elements/gstqtvideosink/CMakeLists.txt
+@@ -4,7 +4,10 @@ glib2_genmarshal(gstqtvideosinkmarshal
+     POINTER:POINTER,FLOAT,FLOAT,FLOAT,FLOAT
+     POINTER:POINTER,DOUBLE,DOUBLE,DOUBLE,DOUBLE
+ )
+-
++add_compile_options(
++    -fmacro-prefix-map=${CMAKE_SOURCE_DIR}=.
++    -ffile-prefix-map=${CMAKE_SOURCE_DIR}=.
++)
+ set(GstQtVideoSink_SRCS
+     utils/utils.cpp
+     utils/bufferformat.cpp
+-- 
+2.43.0
+

@@ -1,0 +1,26 @@
+From 82b19d9d54b80dceaff6464fcca03fe030268809 Mon Sep 17 00:00:00 2001
+From: Benjamin Bodnar <benjamin0906@gmail.com>
+Date: Fri, 20 Feb 2026 13:41:14 +0100
+Subject: [PATCH] TMPDIR removal from lib
+Upstream-Status: Inappropriate
+
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 5744015..1b93015 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -160,7 +160,7 @@ set(QTGSTREAMER_INCLUDES_INSTALL_DIR ${CMAKE_INSTALL_INCLUDEDIR}/${QTGSTREAMER_P
+ if (USE_GST_PLUGIN_DIR)
+     set(QTGSTREAMER_GST_PLUGINS_INSTALL_DIR ${GSTREAMER_PLUGIN_DIR})
+ else()
+-    set(QTGSTREAMER_GST_PLUGINS_INSTALL_DIR ${CMAKE_INSTALL_LIBDIR}/gstreamer-${GSTREAMER_ABI_VERSION})
++    set(QTGSTREAMER_GST_PLUGINS_INSTALL_DIR gstreamer-${GSTREAMER_ABI_VERSION})
+ endif()
+ 
+ if (USE_QT_PLUGIN_DIR)
+-- 
+2.43.0
+
