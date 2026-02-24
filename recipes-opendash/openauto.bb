@@ -10,8 +10,8 @@ IMAGE_INSTALL:append = " qtconnectivity"
 IMAGE_INSTALL:append = " qt5bluetooth"
 DISTRO_FEATURES:append = " pi-bluetooth bluez5 bluetooth"
 IMAGE_INSTALL:append = " pi-bluetooth bluez5"
-DEPENDS += "aasdk  pulseaudio qtbase rtaudio protobuf protobuf-native bluez5 qtconnectivity qtmultimedia abseil"
-DEPENDS += "h264bitstream gstreamer"
+DEPENDS += "aasdk  pulseaudio qtbase rtaudio protobuf protobuf-native bluez5 qtconnectivity qtmultimedia abseil h264bitstream qt-gstreamer gstreamer1.0 gstreamer1.0-libav gstreamer1.0-meta-base gstreamer1.0-plugins-base"
+RDEPENDS:${PN} += "qt-gstreamer gstreamer1.0 gstreamer1.0-libav gstreamer1.0-meta-base gstreamer1.0-plugins-base rtaudio h264bitstream"
 
 inherit cmake pkgconfig cmake_qt5
 

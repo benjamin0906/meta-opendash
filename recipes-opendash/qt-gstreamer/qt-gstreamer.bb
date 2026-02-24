@@ -15,7 +15,8 @@ S = "${WORKDIR}/git"
 
 inherit pkgconfig cmake_qt5
 
-DEPENDS += "abseil zlib gstreamer1.0 qtbase qtdeclarative qwt-qt5 boost doxygen gst-devtools"
+DEPENDS += "abseil zlib gstreamer1.0 qtbase qtdeclarative qwt-qt5 boost doxygen gst-devtools h264bitstream"
+RDEPENDS:${PN} += "gstreamer1.0 h264bitstream"
 
 EXTRA_OECMAKE += "-DCMAKE_POSITION_INDEPENDENT_CODE=ON -DBUILD_SHARED_LIBS=ON -DCMAKE_CXX_STANDARD=17"
 EXTRA_OECMAKE += "-DQT_VERSION=5 -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS=-std=c++17"
@@ -26,7 +27,7 @@ EXTRA_OECMAKE += "-DCMAKE_USE_RELATIVE_PATHS=ON"
 
 
 FILES:${PN} += "${libdir}/gstreamer-1.0/libgstqt5videosink.so"
-FILES:${PN} += "${libdir}/qt5/*"
+FILES:${PN} += "${libdir}/*"
 FILES:${PN} += "${includedir}/Qt5GStreamer/QGlib/*.h"
 FILES:${PN} += "${includedir}/Qt5GStreamer/QGlib/Error"
 FILES:${PN} += "${includedir}/Qt5GStreamer/QGst/*.h"
