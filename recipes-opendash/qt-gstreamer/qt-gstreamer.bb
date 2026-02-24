@@ -8,6 +8,7 @@ SRCREV="${AUTOREV}"
 
 SRC_URI += "file://0001-one-patch.patch"
 SRC_URI += "file://0001-GST_TRACE_OBJECT-abspath-fix.patch"
+SRC_URI += "file://0001-proper-libdir.patch"
 
 LICENSE_FLAGS_ACCEPTED = "commercial"
 

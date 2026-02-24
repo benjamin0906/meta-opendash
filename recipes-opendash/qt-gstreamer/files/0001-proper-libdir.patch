@@ -1,0 +1,28 @@
+From 34751436323d1ddbab31cadf0fad20e4daa604d3 Mon Sep 17 00:00:00 2001
+From: Benjamin Bodnar <benjamin0906@gmail.com>
+Date: Tue, 24 Feb 2026 21:44:26 +0100
+Subject: [PATCH] proper libdir
+Upstream-Status: Inappropriate
+
+---
+ CMakeLists.txt | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 5744015..036c88f 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -168,8 +168,8 @@ if (USE_QT_PLUGIN_DIR)
+     set(QTGSTREAMER_QTQUICK2_INSTALL_DIR ${QT_QML_DIR})
+ else()
+     if (USE_QT5)
+-        set(QTGSTREAMER_QTQUICK1_INSTALL_DIR ${CMAKE_INSTALL_LIBDIR}/qt5/imports)
+-        set(QTGSTREAMER_QTQUICK2_INSTALL_DIR ${CMAKE_INSTALL_LIBDIR}/qt5/qml)
++        set(QTGSTREAMER_QTQUICK1_INSTALL_DIR ${CMAKE_INSTALL_LIBDIR}/imports)
++        set(QTGSTREAMER_QTQUICK2_INSTALL_DIR ${CMAKE_INSTALL_LIBDIR}/qml)
+     else()
+         set(QTGSTREAMER_QTQUICK1_INSTALL_DIR ${CMAKE_INSTALL_LIBDIR}/qt4/imports)
+     endif()
+-- 
+2.43.0
+
