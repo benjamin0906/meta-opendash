@@ -6,7 +6,7 @@ SRCREV="${AUTOREV}"
 
 S = "${WORKDIR}/git"
 
-DEPENDS += "alsa-utils automake-native autoconf-native"
+DEPENDS += "alsa-lib automake-native autoconf-native pulseaudio"
 
 inherit autotools pkgconfig
 
