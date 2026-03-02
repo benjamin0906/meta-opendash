@@ -11,13 +11,19 @@ SRC_URI += "file://autostart"
 
 S = "${WORKDIR}/git"
 
+DISTRO_FEATURES:append = " pi-bluetooth bluetooth"
+
 IMAGE_INSTALL:append = " qtconnectivity"
 IMAGE_INSTALL:append = " qt5bluetooth"
-DISTRO_FEATURES:append = " pi-bluetooth bluetooth"
 IMAGE_INSTALL:append = " pi-bluetooth"
+
 DEPENDS += "aasdk pulseaudio qtbase rtaudio protobuf protobuf-native bluez5 qtconnectivity qtmultimedia abseil"
-DEPENDS += "h264bitstream openauto boost libusb1 bluez-qt qtserialbus qtwebsockets taglib glibc qtbase-native"
-RDEPENDS:${PN} += "qt-gstreamer"
+DEPENDS += "h264bitstream openauto boost libusb1 bluez-qt qtserialbus qtwebsockets taglib glibc qtbase-native gstreamer1.0-libav"
+RDEPENDS:${PN} += "qt-gstreamer gstreamer1.0-libav pulseaudio"
+
+DEPENDS             += "alsa-utils alsa-tools alsa-lib alsa-plugins pulseaudio dnf-native"
+RDEPENDS:${PN}      += "alsa-utils alsa-tools alsa-lib alsa-plugins pulseaudio"
+IMAGE_INSTALL:append = " alsa-utils alsa-tools alsa-lib alsa-plugins pulseaudio pulseaudio-server pulseaudio-misc pulseaudio-module-dbus-protocol pulseaudio-client-conf pulseaudio-module-bluetooth"
 
 inherit cmake pkgconfig cmake_qt5
 

@@ -15,9 +15,9 @@ sysresources="$xinitdir/.Xresources"
 sysmodmap="$xinitdir/.Xmodmap"
 
 # merge in defaults and keymaps
-/sbin/udevd --daemon
-udevadm trigger
-udevadm settle
+#/sbin/udevd --daemon
+#udevadm trigger
+#udevadm settle
 
 if [ -f "$sysresources" ]; then
     if [ -x /usr/bin/cpp ] ; then

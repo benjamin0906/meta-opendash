@@ -13,26 +13,22 @@ IMAGE_INSTALL:append = " xinit"
 IMAGE_INSTALL:append = " xf86-video-modesetting"
 IMAGE_INSTALL:append = " xf86-input-evdev"
 IMAGE_INSTALL:append = " xauth"
-IMAGE_INSTALL:append = " mesa"
-IMAGE_INSTALL:append = " libgl-mesa libegl-mesa"
+IMAGE_INSTALL:append = " mesa libgl-mesa libegl-mesa libdrm libegl libgbm"
 IMAGE_INSTALL:append = " xterm"
-#IMAGE_INSTALL:append = " xf86-video-fbdev"
-#IMAGE_INSTALL:append = " xkeyboard-config"
-#IMAGE_INSTALL:append = " xkbcomp glfw"
-#IMAGE_INSTALL:append = " qtbase"
-#IMAGE_INSTALL:append = " qtbase-plugins"
-#IMAGE_INSTALL:append = " libxkbcommon"
-IMAGE_INSTALL:append = " xf86-input-libinput "
-#IMAGE_INSTALL:append = " fontconfig libxft pango ttf-pt-sans"
+IMAGE_INSTALL:append = " xf86-input-libinput"
 IMAGE_INSTALL:append = " xserver-xorg-extension-glx"
 IMAGE_INSTALL:append = " dropbear"
 IMAGE_INSTALL:append = " xclock xterm"
 IMAGE_INSTALL:append = " openbox"
-
+IMAGE_INSTALL:append = " kernel-modules"
 IMAGE_INSTALL:append = " \
-    libdrm \
-    libegl \
-    libgbm \
+    alsa-utils \
+    alsa-tools \
+    alsa-lib \
+    alsa-plugins \
+    pulseaudio \
+    pulseaudio-server \
+    pulseaudio-misc \
 "
 IMAGE_INSTALL:append = " glibc-localedata-en-us libinput"
-IMAGE_INSTALL:append = " xinput "
+IMAGE_INSTALL:append = " xinput"
