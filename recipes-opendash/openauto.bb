@@ -6,10 +6,10 @@ SRCREV="${AUTOREV}"
 
 S = "${WORKDIR}/git"
 
-IMAGE_INSTALL:append = " qtconnectivity"
+#IMAGE_INSTALL:append = " qtconnectivity"
 #IMAGE_INSTALL:append = " qt5bluetooth"
 IMAGE_INSTALL:append = " pi-bluetooth bluez5"
-DEPENDS += "aasdk  pulseaudio qtbase rtaudio protobuf protobuf-native bluez5 qtconnectivity qtmultimedia abseil h264bitstream \
+DEPENDS += "aasdk pulseaudio qtbase rtaudio protobuf protobuf-native bluez5 qtconnectivity qtmultimedia abseil h264bitstream \
     qt-gstreamer gstreamer1.0 gstreamer1.0-libav gstreamer1.0-meta-base gstreamer1.0-plugins-base \
     gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-plugins-good"
 RDEPENDS:${PN} += "qt-gstreamer gstreamer1.0 gstreamer1.0-libav gstreamer1.0-meta-base gstreamer1.0-plugins-base rtaudio h264bitstream \
