@@ -19,7 +19,7 @@ IMAGE_INSTALL:append = " pi-bluetooth"
 
 DEPENDS += "aasdk pulseaudio qtbase rtaudio protobuf protobuf-native bluez5 qtconnectivity qtmultimedia abseil"
 DEPENDS += "h264bitstream openauto boost libusb1 bluez-qt qtserialbus qtwebsockets taglib glibc qtbase-native gstreamer1.0-libav"
-RDEPENDS:${PN} += "qt-gstreamer gstreamer1.0-libav pulseaudio"
+RDEPENDS:${PN} += "qt-gstreamer gstreamer1.0-libav pulseaudio libusb1"
 
 DEPENDS             += "alsa-utils alsa-tools alsa-lib alsa-plugins pulseaudio dnf-native"
 RDEPENDS:${PN}      += "alsa-utils alsa-tools alsa-lib alsa-plugins pulseaudio"

@@ -18,7 +18,7 @@ IMAGE_INSTALL:append = " xterm"
 IMAGE_INSTALL:append = " xf86-input-libinput"
 IMAGE_INSTALL:append = " xserver-xorg-extension-glx"
 IMAGE_INSTALL:append = " dropbear"
-IMAGE_INSTALL:append = " xclock xterm"
+IMAGE_INSTALL:append = " xterm"
 IMAGE_INSTALL:append = " openbox"
 IMAGE_INSTALL:append = " kernel-modules"
 IMAGE_INSTALL:append = " \
@@ -29,6 +29,7 @@ IMAGE_INSTALL:append = " \
     pulseaudio \
     pulseaudio-server \
     pulseaudio-misc \
+    udev \
 "
 IMAGE_INSTALL:append = " glibc-localedata-en-us libinput"
 IMAGE_INSTALL:append = " xinput"
