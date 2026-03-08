@@ -17,9 +17,9 @@ DISTRO_FEATURES:append = " pi-bluetooth bluetooth"
 #IMAGE_INSTALL:append = " qt5bluetooth"
 IMAGE_INSTALL:append = " pi-bluetooth"
 
-DEPENDS += "aasdk qtbase rtaudio protobuf protobuf-native bluez5 qtconnectivity qtmultimedia abseil"
-DEPENDS += "h264bitstream openauto boost libusb1 bluez-qt qtserialbus qtwebsockets taglib glibc qtbase-native gstreamer1.0-libav"
-RDEPENDS:${PN} += "qt-gstreamer gstreamer1.0-libav libusb1"
+DEPENDS += "aasdk qtbase bluez5 qtconnectivity qtmultimedia"
+DEPENDS += "h264bitstream openauto boost libusb1 bluez-qt qtserialbus qtwebsockets taglib glibc qtbase-native"
+RDEPENDS:${PN} += "qt-gstreamer libusb1"
 
 DEPENDS             += "alsa-utils alsa-tools alsa-lib alsa-plugins pulseaudio dnf-native"
 RDEPENDS:${PN}      += "alsa-utils alsa-tools alsa-lib alsa-plugins pulseaudio"
