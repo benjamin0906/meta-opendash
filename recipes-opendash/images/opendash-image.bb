@@ -11,7 +11,6 @@ IMAGE_INSTALL:append = " dash"
 IMAGE_INSTALL:append = " xserver-xorg"
 IMAGE_INSTALL:append = " xinit"
 IMAGE_INSTALL:append = " xf86-video-modesetting"
-IMAGE_INSTALL:append = " xf86-input-evdev"
 IMAGE_INSTALL:append = " xauth"
 IMAGE_INSTALL:append = " mesa libgl-mesa libegl-mesa libdrm libegl"
 IMAGE_INSTALL:append = " xf86-input-libinput"
@@ -20,15 +19,10 @@ IMAGE_INSTALL:append = " dropbear"
 IMAGE_INSTALL:append = " xterm"
 IMAGE_INSTALL:append = " openbox"
 IMAGE_INSTALL:append = " kernel-modules"
-IMAGE_INSTALL:append = " \
-    alsa-utils \
-    alsa-tools \
-    alsa-lib \
-    alsa-plugins \
-    pulseaudio \
-    pulseaudio-server \
-    pulseaudio-misc \
-    udev \
-"
+IMAGE_INSTALL:append = " eudev"
 IMAGE_INSTALL:append = " glibc-localedata-en-us libinput"
 IMAGE_INSTALL:append = " xinput"
+IMAGE_INSTALL:append = " pi-bluetooth"
+IMAGE_INSTALL:append = " bluez5"
+IMAGE_INSTALL:append = " pulseaudio pulseaudio-misc pulseaudio-server pulseaudio-module-dbus-protocol"
+IMAGE_INSTALL:append = " pulseaudio-server"
