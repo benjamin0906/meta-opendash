@@ -19,7 +19,8 @@ RDEPENDS:${PN} += "libusb1"
 
 DEPENDS             += "dnf-native"
 
-inherit cmake pkgconfig cmake_qt5
+inherit cmake pkgconfig cmake_qt5 useradd
+
 
 EXTRA_OECMAKE += "-DGST_BUILD=true"
 EXTRA_OECMAKE += "-DBoost_NO_SYSTEM_PATHS=ON"
@@ -30,6 +31,11 @@ EXTRA_OECMAKE += "-DQt5GStreamer=${RECIPE_SYSROOT}/usr/lib/libQt5GStreamer-1.0.s
 
 FILES:${PN} += "${sysconfdir}/udev/rules.d/51-dashusb.rules"
 FILES:${PN} += "/home/root/.config/openbox"
+
+PASSWD="\$6\$1U14YPnJSk2/CfJG\$WXLg2lG0x7e7jGpBPVxujeLD2tAAXthBIqMvCWggoe1YIaaWyTUsf.gJpJTvrMQPFl.KZB1VjurO0wnUrDLHj1"
+
+USERADD_PACKAGES = "${PN}"
+USERADD_PARAM:${PN} = "-r -s /bin/sh -p '${PASSWD}' dash_user"
 
 do_install:append() {
     install -d ${D}${sysconfdir}/udev/rules.d
