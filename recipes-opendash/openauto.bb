@@ -7,14 +7,32 @@ SRCREV="${AUTOREV}"
 S = "${WORKDIR}/git"
 
 DEPENDS         += "alsa-utils alsa-plugins pulseaudio"
-RDEPENDS:${PN}  += "alsa-utils alsa-plugins pulseaudio"
+#RDEPENDS:${PN}  += "alsa-utils alsa-plugins pulseaudio"
 
-DEPENDS += "aasdk qtbase rtaudio protobuf protobuf-native bluez5 qtconnectivity qtmultimedia abseil h264bitstream \
-    qt-gstreamer gstreamer1.0 gstreamer1.0-libav gstreamer1.0-plugins-base \
-    gstreamer1.0-plugins-bad gstreamer1.0-plugins-good"
-RDEPENDS:${PN} += "qt-gstreamer gstreamer1.0 gstreamer1.0-libav gstreamer1.0-plugins-base rtaudio h264bitstream \
-    gstreamer1.0-plugins-bad gstreamer1.0-plugins-good"
-
+DEPENDS += "aasdk"
+DEPENDS += "qtbase"
+DEPENDS += "rtaudio"
+DEPENDS += "protobuf"
+DEPENDS += "protobuf-native"
+DEPENDS += "bluez5"
+DEPENDS += "qtconnectivity"
+DEPENDS += "qtmultimedia"
+DEPENDS += "abseil"
+DEPENDS += "h264bitstream"
+DEPENDS += "qt-gstreamer"
+DEPENDS += "gstreamer1.0"
+DEPENDS += "gstreamer1.0-libav"
+DEPENDS += "gstreamer1.0-plugins-base"
+DEPENDS += "gstreamer1.0-plugins-bad"
+DEPENDS += "gstreamer1.0-plugins-good"
+RDEPENDS:${PN} += "qt-gstreamer"
+RDEPENDS:${PN} += "gstreamer1.0"
+RDEPENDS:${PN} += "gstreamer1.0-libav"
+RDEPENDS:${PN} += "gstreamer1.0-plugins-base"
+RDEPENDS:${PN} += "gstreamer1.0-plugins-bad"
+RDEPENDS:${PN} += "gstreamer1.0-plugins-good"
+RDEPENDS:${PN} += "rtaudio"
+RDEPENDS:${PN} += "h264bitstream"
 
 inherit cmake pkgconfig cmake_qt5
 
